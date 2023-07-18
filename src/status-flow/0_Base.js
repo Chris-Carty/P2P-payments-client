@@ -17,11 +17,6 @@ export default function Pay() {
     Number.isInteger(storedValueAsNumber) ? storedValueAsNumber : 0
   );
 
-  useEffect(() => {
-    console.log("clearing cookies");
-    clearCookies();
-  }, []);
-
   // Store step in flow as cookie
   useEffect(() => {
     document.cookie = `activeStep=${activeStep}`;
@@ -40,13 +35,17 @@ export default function Pay() {
         return (
           <StatusScreen activeStep={activeStep} setActiveStep={setActiveStep} />
         );
+      case 2:
+        return (
+          <StatusScreen activeStep={activeStep} setActiveStep={setActiveStep} />
+        );
       default:
         throw new Error("Unknown step");
     }
   };
 
   const cancelButton = (step) => {
-    if (step === 0) {
+    if (step === 2 || step === 0) {
       return (
         <IconButton size="small">
           <CloseIcon fontSize="small" visibility="hidden" />
