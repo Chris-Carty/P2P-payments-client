@@ -17,6 +17,10 @@ export default function Pay() {
     Number.isInteger(storedValueAsNumber) ? storedValueAsNumber : 0
   );
 
+  useEffect(() => {
+    setActiveStep(0);
+  }, []);
+
   // Store step in flow as cookie
   useEffect(() => {
     document.cookie = `activeStep=${activeStep}`;
