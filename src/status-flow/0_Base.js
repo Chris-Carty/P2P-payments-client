@@ -18,6 +18,7 @@ export default function Pay() {
   );
 
   useEffect(() => {
+    console.log("clearing cookies");
     clearCookies();
   }, []);
 
