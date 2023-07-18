@@ -79,12 +79,11 @@ export default function PaymentScreen({ activeStep, setActiveStep }) {
                 target: document.getElementById("target"),
                 // remove the target element from the DOM after the payment is done
                 onDone: () => {
+                  clearCookies();
                   const target = document.getElementById("target");
                   if (target) {
                     target.remove();
                   }
-                  clearCookies();
-                  window.location.reload();
                 },
                 // remove the target element from the DOM if the user aborts the payment
                 onAbort: () => {
