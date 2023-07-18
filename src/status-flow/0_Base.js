@@ -18,7 +18,7 @@ export default function Pay() {
   );
 
   useEffect(() => {
-    setActiveStep(0);
+    clearCookies();
   }, []);
 
   // Store step in flow as cookie
