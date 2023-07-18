@@ -17,7 +17,7 @@ export default function PayByBank({
     // Ensure number is 2.d.p
     const numRound = Math.round(num * 100) / 100;
     // Check if payment amount is valid i.e greater than £5.
-    if ((numRound >= 5) & (payerName.length > 4)) {
+    if (/*(numRound >= 5) & */ payerName.length > 4) {
       // Call backend to generate payment link
       document.cookie = `paymentAmount=${numRound}`;
       document.cookie = `payerName=${payerName}`;
