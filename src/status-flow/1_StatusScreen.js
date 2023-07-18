@@ -38,9 +38,11 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
           if (paymentStatus === "settled" || paymentStatus === "executed") {
             setLoading(false);
             setIsPaymentSettled(true);
+            clearCookies();
           } else if (paymentStatus === "failed") {
             setLoading(false);
             setIsPaymentSettled(false);
+            clearCookies();
           } else {
             setTimeout(getPaymentStatus.bind(null, payment_id), 2000);
           }
