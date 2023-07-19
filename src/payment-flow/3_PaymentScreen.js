@@ -30,7 +30,6 @@ export default function PaymentScreen({ activeStep, setActiveStep }) {
           )
           .then(async (response) => {
             if (response.data !== null) {
-              //clearCookies();
               const payment = Payment({
                 payment_id: response.data.payment_id,
                 resource_token: response.data.resource_token,
@@ -103,14 +102,19 @@ export default function PaymentScreen({ activeStep, setActiveStep }) {
               payment.start();
             } else {
               setError(true);
+              setTimeout(clearCookies, 1500);
+              window.location.reload();
             }
           })
           .catch((error) => {
-            console.log(error);
             setError(true);
+            setTimeout(clearCookies, 1500);
+            window.location.reload();
           });
       } catch {
         setError(true);
+        setTimeout(clearCookies, 1500);
+        window.location.reload();
       }
     };
     generateEmbeddedPayment();
