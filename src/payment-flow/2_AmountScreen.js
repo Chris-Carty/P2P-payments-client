@@ -24,7 +24,7 @@ export default function AmountScreen({ activeStep, setActiveStep }) {
   // Payment amount
   const [paymentAmount, setPaymentAmount] = useState(50.0);
   // Payer name
-  const [payerName, setPayerName] = useState("Chris Carty");
+  const [payerName, setPayerName] = useState("");
 
   const displayCustomInput = () => {
     setCustom(true);
