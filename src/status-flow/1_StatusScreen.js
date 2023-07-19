@@ -38,11 +38,11 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
           const paymentStatus = response.data;
 
           if (paymentStatus === "settled" || paymentStatus === "executed") {
-            setLoading(false);
+            //setLoading(false);
             setIsPaymentSettled(true);
             clearCookies();
           } else if (paymentStatus === "failed") {
-            setLoading(false);
+            //setLoading(false);
             setIsPaymentSettled(false);
             clearCookies();
           } else {
@@ -62,10 +62,10 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
       {loading ? (
         <React.Fragment>
           <FormWrapper>
-            <HelperWrap>
+            <ProcessingWrap>
               <HelperText text={"Processing payment"} />
-            </HelperWrap>
-            <CircularProgress size={"28px"} style={{ color: "#F9D3C0" }} />
+              <CircularProgress size={"28px"} style={{ color: "#F9D3C0" }} />
+            </ProcessingWrap>
           </FormWrapper>
         </React.Fragment>
       ) : (
@@ -88,7 +88,8 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
 }
 
 // Styled components
-const HelperWrap = styled.div`
-  margin-bottom: 20px;
-  margin-top: 0px;
+const ProcessingWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
