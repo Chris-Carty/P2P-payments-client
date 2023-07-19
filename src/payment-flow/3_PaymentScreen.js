@@ -102,19 +102,16 @@ export default function PaymentScreen({ activeStep, setActiveStep }) {
               payment.start();
             } else {
               setError(true);
-              setTimeout(clearCookies, 1500);
-              window.location.reload();
+              setActiveStep(activeStep - 1);
             }
           })
           .catch((error) => {
             setError(true);
-            setTimeout(clearCookies, 1500);
-            window.location.reload();
+            setActiveStep(activeStep - 1);
           });
       } catch {
         setError(true);
-        setTimeout(clearCookies, 1500);
-        window.location.reload();
+        setActiveStep(activeStep - 1);
       }
     };
     generateEmbeddedPayment();
