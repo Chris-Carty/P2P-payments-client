@@ -3,6 +3,8 @@ import clearCookies from "../utils/clearCookies";
 import styled from "styled-components";
 import FormWrapper from "../components/FormWrapper";
 import HelperText from "../components/text/HelperText";
+import SuccessScreen from "../components/FailureScreen.js";
+import FailureScreen from "../components/FailureScreen.js";
 import CircularProgress from "@mui/material/CircularProgress";
 import api from "../utils/api";
 
@@ -60,12 +62,10 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
       {loading ? (
         <React.Fragment>
           <FormWrapper>
-            <Wrapper>
-              <HelperWrap>
-                <HelperText text={"Processing payment"} />
-              </HelperWrap>
-              <CircularProgress size={"28px"} style={{ color: "#F9D3C0" }} />
-            </Wrapper>
+            <HelperWrap>
+              <HelperText text={"Processing payment"} />
+            </HelperWrap>
+            <CircularProgress size={"28px"} style={{ color: "#F9D3C0" }} />
           </FormWrapper>
         </React.Fragment>
       ) : (
@@ -73,17 +73,11 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
           <FormWrapper>
             {isPaymentSettled ? (
               <React.Fragment>
-                <HelperWrap>
-                  <HelperText text={"Payment Successful"} />
-                  <HelperText text={"Your Gift is on the way to Laura"} />
-                </HelperWrap>
+                <SuccessScreen />
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <HelperWrap>
-                  <HelperText text={"Payment Failed"} />
-                  <HelperText text={"Please try again"} />
-                </HelperWrap>
+                <FailureScreen />
               </React.Fragment>
             )}
           </FormWrapper>
@@ -97,12 +91,4 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
 const HelperWrap = styled.div`
   margin-bottom: 20px;
   margin-top: 0px;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
 `;
