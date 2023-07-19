@@ -59,9 +59,14 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
     <div>
       {loading ? (
         <React.Fragment>
-          <Wrapper>
-            <CircularProgress size={"28px"} style={{ color: "white" }} />
-          </Wrapper>
+          <FormWrapper>
+            <Wrapper>
+              <HelperWrap>
+                <HelperText text={"Processing payment"} />
+              </HelperWrap>
+              <CircularProgress size={"28px"} style={{ color: "#F9D3C0" }} />
+            </Wrapper>
+          </FormWrapper>
         </React.Fragment>
       ) : (
         <React.Fragment>
@@ -70,12 +75,14 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
               <React.Fragment>
                 <HelperWrap>
                   <HelperText text={"Payment Successful"} />
+                  <HelperText text={"Your Gift is on the way to Laura"} />
                 </HelperWrap>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 <HelperWrap>
                   <HelperText text={"Payment Failed"} />
+                  <HelperText text={"Please try again"} />
                 </HelperWrap>
               </React.Fragment>
             )}
@@ -93,15 +100,9 @@ const HelperWrap = styled.div`
 `;
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 999;
-  background-color: black;
-  width: 100vw;
-  height: 100%;
   box-sizing: border-box;
 `;
