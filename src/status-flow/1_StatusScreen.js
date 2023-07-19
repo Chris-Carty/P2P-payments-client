@@ -38,11 +38,11 @@ export default function LoadingScreen({ activeStep, setActiveStep }) {
           const paymentStatus = response.data;
 
           if (paymentStatus === "settled" || paymentStatus === "executed") {
-            //setLoading(false);
+            setLoading(false);
             setIsPaymentSettled(true);
             clearCookies();
           } else if (paymentStatus === "failed") {
-            //setLoading(false);
+            setLoading(false);
             setIsPaymentSettled(false);
             clearCookies();
           } else {
