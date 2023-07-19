@@ -3,8 +3,8 @@ import clearCookies from "../utils/clearCookies";
 import styled from "styled-components";
 import FormWrapper from "../components/FormWrapper";
 import HelperText from "../components/text/HelperText";
-import SuccessScreen from "../components/FailureScreen.js";
-import FailureScreen from "../components/FailureScreen.js";
+import SuccessScreen from "../components/SuccessScreen";
+import FailureScreen from "../components/FailureScreen";
 import CircularProgress from "@mui/material/CircularProgress";
 import api from "../utils/api";
 
